@@ -1,4 +1,4 @@
-import '../pages/header.css';
+import './header.css';
 import { Link } from 'react-router';
 
 function Header({ cart }) {
@@ -31,7 +31,7 @@ function Header({ cart }) {
           <span className="orders-text">Orders</span>
         </Link>
 
-        <Link className="cart-link header-link" to="checkout">
+        <Link className="cart-link header-link" to="/checkout">
           <img className="cart-icon" src="images/icons/cart-icon.png" />
           <div className="cart-quantity">{cartquantity}</div>
           <div className="cart-text">Cart</div>
