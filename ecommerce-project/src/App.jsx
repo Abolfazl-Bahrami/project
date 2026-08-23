@@ -2,16 +2,19 @@ import HomePage from "./pages/home/HomePage.jsx";
 import CheckoutPage from "./pages/checkout/CheckoutPage.jsx";
 import OrdersPage from "./pages/orders/OrdersPage.jsx";
 import TrackingPage from "./pages/TrackingPage.jsx";
-import { Routes, Route } from "react-router";
+import { Routes, Route, resolvePath } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/api/cart-items?expand=product').then((response) => {
+    const fetchData = async ()=>{
+      const response = await axios.get('http://localhost:3000/api/cart-items?expand=product');
       setCart(response.data);
-    });
+    }
+    
+    fetchData();
   }, []);
   return (
     <Routes>

@@ -15,10 +15,13 @@ function CheckoutPage({ cart }) {
     const selectionOption = deliveryOptions.find((option) => option.id === selection[item.id]);
     return sum + (selectionOption ? selectionOption.priceCents : 0);
   }, 0);
+  
   useEffect(() => {
-    axios.get('http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime').then((response) => {
+    const fetchDeliveryOption = async () => {
+      const response = await axios.get('http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime');
       setDeliveryOptions(response.data);
-    })
+    }
+    fetchDeliveryOption();
   }, []);
 
   return (

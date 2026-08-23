@@ -9,9 +9,12 @@ function HomePage({ cart }) {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/products').then((response) => {
+    const fatchProducts = async () => {
+      const response = await axios.get('http://localhost:3000/api/products')
       setProducts(response.data);
-    });
+    };
+
+    fatchProducts();
   }, [])
 
   return (

@@ -6,9 +6,12 @@ import OrdersGrid from './OrdersGrid';
 function OrdersPage({ cart }) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/api/orders?expand=products').then((response) => {
+    const fetchOrders = async ()=>{
+      const response = await axios.get('http://localhost:3000/api/orders?expand=products');
       setProducts(response.data);
-    })
+    }
+    
+    fetchOrders();
   }, []);
   return (
     <>
