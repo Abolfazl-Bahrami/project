@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { formatMoney } from '../../utils/money.js';
-function ProductsGrid({ products }) {
+function ProductsGrid({ products , loadPage }) {
   return (
     <div className="products-grid">
       {products.map((product) => {
@@ -48,7 +49,15 @@ function ProductsGrid({ products }) {
               Added
             </div>
 
-            <button className="add-to-cart-button button-primary">
+            <button
+              onClick={() => {
+                axios.post('http://localhost:3000/api/cart-items' , {
+                  productId : product.id ,
+                  quantity : 1
+                });
+                loadPage();
+              }}
+              className="add-to-cart-button button-primary">
               Add to Cart
             </button>
           </div>

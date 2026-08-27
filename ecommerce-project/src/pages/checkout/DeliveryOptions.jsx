@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../utils/money";
-function DeliveryOptions({ deliveryOptions , selection , cartitem }) {
+function DeliveryOptions({ deliveryOptions , selection , cartitem , selectiondelivery }) {
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">

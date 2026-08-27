@@ -33,7 +33,7 @@ function CheckoutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} selection={selection} />
+          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} selection={selection} setSelection={setSelection}  />
           {(countitem > 0) &&
             <>
               <PaymentSummary countitem={countitem} priceSelected={priceSelected} multeplePrice={multeplePrice} />
