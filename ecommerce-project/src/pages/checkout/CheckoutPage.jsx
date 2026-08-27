@@ -36,7 +36,7 @@ function CheckoutPage({ cart , loadPage }) {
           <OrderSummary cart={cart} deliveryOptions={deliveryOptions} selection={selection} setSelection={setSelection} loadPage={loadPage} />
           {(countitem > 0) &&
             <>
-              <PaymentSummary countitem={countitem} priceSelected={priceSelected} multeplePrice={multeplePrice} />
+              <PaymentSummary countitem={countitem} priceSelected={priceSelected} multeplePrice={multeplePrice} loadPage={loadPage} />
             </>
           }
         </div>

@@ -1,6 +1,14 @@
-
+import axios from "axios";
+import { useNavigate } from 'react-router';
 import { formatMoney } from "../../utils/money";
-function PaymentSummary({ countitem , priceSelected , multeplePrice }) {
+function PaymentSummary({ countitem , priceSelected , multeplePrice , loadPage }) {
+  const navigate = useNavigate();
+
+  const addToOrders = async ()=>{
+    await axios.post('http://localhost:3000/api/orders');
+    await loadPage();
+    navigate('/orders');
+  };
   return (
     <div className="payment-summary">
       <div className="payment-summary-title">
@@ -32,7 +40,8 @@ function PaymentSummary({ countitem , priceSelected , multeplePrice }) {
         <div className="payment-summary-money">{formatMoney(((priceSelected + multeplePrice) / 10) + priceSelected + multeplePrice)}</div>
       </div>
 
-      <button className="place-order-button button-primary">
+      <button className="place-order-button button-primary"
+        onClick={addToOrders}>
         Place your order
       </button>
     </div>
