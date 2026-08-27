@@ -1,6 +1,3 @@
-import axios from 'axios';
-import { formatMoney } from '../../utils/money.js';
-import { useState } from 'react';
 import Product from './Prudoct.jsx';
 function ProductsGrid({ products , loadPage }) {
   return (
