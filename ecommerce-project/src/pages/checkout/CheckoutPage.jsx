@@ -6,7 +6,7 @@ import { formatMoney } from '../../utils/money';
 import CheckoutHeader from './CheckoutHeader';
 import OrderSummary from './OrderSummary';
 import PaymentSummary from './PaymentSummary';
-function CheckoutPage({ cart }) {
+function CheckoutPage({ cart , loadPage }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [selection, setSelection] = useState({});
   const countitem = cart.reduce((sum, item) => sum + item.quantity, 0)
@@ -33,7 +33,7 @@ function CheckoutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} selection={selection} setSelection={setSelection}  />
+          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} selection={selection} setSelection={setSelection} loadPage={loadPage} />
           {(countitem > 0) &&
             <>
               <PaymentSummary countitem={countitem} priceSelected={priceSelected} multeplePrice={multeplePrice} />
