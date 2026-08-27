@@ -5,7 +5,7 @@ function PaymentSummary({ countitem , priceSelected , multeplePrice , loadPage }
   const navigate = useNavigate();
 
   const addToOrders = async ()=>{
-    await axios.post('http://localhost:3000/api/orders');
+    await axios.post('/api/orders');
     await loadPage();
     navigate('/orders');
   };

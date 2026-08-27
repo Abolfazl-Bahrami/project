@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const loadPage = async () => {
-    const response = await axios.get('http://localhost:3000/api/cart-items?expand=product');
+    const response = await axios.get('/api/cart-items?expand=product');
     setCart(response.data);
   }
   const [cart, setCart] = useState([]);

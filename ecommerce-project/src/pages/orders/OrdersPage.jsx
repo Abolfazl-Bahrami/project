@@ -7,7 +7,7 @@ function OrdersPage({ cart }) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchOrders = async ()=>{
-      const response = await axios.get('http://localhost:3000/api/orders?expand=products');
+      const response = await axios.get('/api/orders?expand=products');
       setProducts(response.data);
     }
     

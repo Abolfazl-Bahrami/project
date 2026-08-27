@@ -50,7 +50,7 @@ function Product({ product , loadPage }){
 
             <button
               onClick={() => {
-                axios.post('http://localhost:3000/api/cart-items' , {
+                axios.post('/api/cart-items' , {
                   productId : product.id ,
                   quantity
                 });

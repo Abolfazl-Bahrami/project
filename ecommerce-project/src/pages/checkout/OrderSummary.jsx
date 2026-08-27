@@ -16,7 +16,7 @@ function OrderSummary({ cart, deliveryOptions, selection, setSelection, loadPage
           return deliveryOption.id === selection[cartitem.productId];
         });
         const deleteProduct = async () => {
-          await axios.delete(`http://localhost:3000/api/cart-items/${cartitem.productId}`);
+          await axios.delete(`/api/cart-items/${cartitem.productId}`);
           await loadPage();
         };
         return (

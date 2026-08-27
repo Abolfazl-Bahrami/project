@@ -18,7 +18,7 @@ function CheckoutPage({ cart , loadPage }) {
   
   useEffect(() => {
     const fetchDeliveryOption = async () => {
-      const response = await axios.get('http://localhost:3000/api/delivery-options?expand=estimatedDeliveryTime');
+      const response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime');
       setDeliveryOptions(response.data);
     }
     fetchDeliveryOption();
